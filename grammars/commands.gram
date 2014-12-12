@@ -1,0 +1,53 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Digits Grammar file
+ */
+
+grammar commands;
+
+public <multicommand> = <command>*;
+
+<command> = <address> <instruction>;
+
+<address> = computer;
+
+<instruction> =  <tea> | <open> | <music> | <sound> | <stop> | <screen> ;
+
+<stop> = stop | end program ;
+
+<tea> = tea <tea_type> <temperature> ;
+
+<tea_type> = earl grey | english breakfast | jasmine ;
+
+<temperature> = hot | cold ;
+
+<open> = open <program> ;
+
+<program> = vim | chrome | sesame;
+
+<music> = <play_music> | <pause_music> | <prev_song> | <next_song>;
+
+<play_music>  = play music | start music | turn on some tunes;
+
+<pause_music>  = pause music | pause song;
+
+<prev_song>  = last song | previous song;
+
+<next_song>  = skip song | next song;
+
+<sound> = <volume_up> | <volume_down> | <mute> | <unmute>;
+
+<volume_up>  = volume up | louder | more volume | turn it up;
+
+<volume_down>  = volume down | quieter | less noise | turn it down;
+
+<mute>  = quiet | mute | volume off | sound off;
+
+<unmute>  = sound on | volume on;
+
+<screen> = <screen_on> | <screen_off>;
+
+<screen_on>  = screen on | turn the monitor on | turn the screen on | monitor on;
+
+<screen_off>  = screen off | monitor off | turn the screen off | turn the monitor off;

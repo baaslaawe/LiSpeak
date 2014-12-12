@@ -1,0 +1,1 @@
+commands\nircmd.exe mutesysvolume 0

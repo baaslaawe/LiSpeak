@@ -1,0 +1,29 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Digits Grammar file
+ */
+
+grammar commands_old;
+
+public <multicommand> = <command>*;
+
+<command> = <address> <instruction>;
+
+<address> = computer;
+
+<instruction> = ( <tea> | <open> | <music> | <stop> );
+
+<stop> = stop | end program;
+
+<tea> = tea <tea_type> <temperature>;
+
+<tea_type> = earl grey | english breakfast | jasmine;
+
+<temperature> = hot | cold;
+
+<open> = open <program>;
+
+<program> = vim | chrome | sesame;
+
+<music> = play music | pause music | pause song | skip this song | skip song | next song | last song;

@@ -1,0 +1,53 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Digits Grammar file
+ */
+
+grammar commands;
+
+public <multicommand> = <command>*;
+
+<command> = <address> <instruction>;
+
+<address> = computer;
+
+<instruction> =  <tea> | <open> | <music> | <sound> | <stop> | <screen> ;
+
+<stop> = stop {"response" "don't stop me now"}| end program {"response" "exiting holodeck"};
+
+<tea> = tea <tea_type> <temperature> {"response" "tea"};
+
+<tea_type> = earl grey {"earl grey"}| english breakfast {"english breakfast"}| jasmine {"jasmine"};
+
+<temperature> = hot {"hot"}| cold {"cold"};
+
+<open> = open <program> {"program"};
+
+<program> = vim {"vim"}| chrome {"chrome"}| sesame{"sesame"};
+
+<music> = <play_music> | <pause_music> | <prev_song> | <next_song>;
+
+<play_music> {"do" "batch" "unmute.cmd" "then" "batch" "playmusic.cmd"} = play music | start music | turn on some tunes;
+
+<pause_music> {"batch" "playmusic.cmd"} = pause music | pause song;
+
+<prev_song> {"batch" "prevsong.cmd"} = last song | previous song;
+
+<next_song> {"batch" "nextsong.cmd"} = skip song | next song;
+
+<sound> = <volume_up> | <volume_down> | <mute> | <unmute>;
+
+<volume_up> {"batch", "volup.cmd"} = volume up | louder | more volume | turn it up;
+
+<volume_down> {"batch", "voldown.cmd"} = volume down | quieter | less noise | turn it down;
+
+<mute> {"batch", "mute.cmd"} = quiet | mute | volume off | sound off;
+
+<unmute> {"batch", "unmute.cmd"} = sound on | volume on;
+
+<screen> = <screen_on> | <screen_off>;
+
+<screen_on> {"batch", "screenon.cmd"} = screen on | turn the monitor on | turn the screen on | monitor on;
+
+<screen_off> {"batch", "screenoff.cmd"} = screen off | monitor off | turn the screen off | turn the monitor off;
